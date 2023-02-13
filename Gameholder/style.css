@@ -1,0 +1,72 @@
+body {
+    font-family: sans-serif;
+    background-color: royalblue;
+    background-image: linear-gradient(teal, black);
+  }
+  
+  h1, h2, h3 {
+    font-size: 23px;
+  }
+  
+  .reviews p {
+    font-family: serif;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  header {
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    padding: 20px 0;
+  }
+  
+  main {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  footer {
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    padding: 20px 0;
+  }
+  
+  .game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .game-synopsis {
+    width: 60%;
+    text-align: left;
+  }
+  
+  .game-details {
+    width: 30%;
+    text-align: left;
+  }
+  
+  .game-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .game-reviews {
+    margin-top: 20px;
+  }
+  
