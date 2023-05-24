@@ -1,0 +1,122 @@
+/* Reset default browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: white;
+  }
+  
+  /* Container styles */
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  
+  /* Header styles */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Navigation styles */
+  nav ul {
+    display: flex;
+  }
+  
+  nav li {
+    list-style: none;
+    margin-right: 20px;
+    margin-top: 20px;
+
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    background-color: #d1f0ff;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    margin-top: 20px;
+
+  }
+  
+  nav a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Section styles */
+  section {
+    position: relative;
+    margin: 20px 0;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+    right: 200px;
+  }
+  
+.info1{
+    border: 3px solid black;
+    position: relative;
+
+  }
+
+
+
+.info2{
+    border: 3px solid black;
+    position: relative;
+    left: 800px;
+    bottom: 200px;
+}
+
+.images{
+    position: relative;
+    bottom: 200px;
+    margin-top: 30px;
+}
+
+.specs{
+    position: relative;
+    bottom: 200px;
+    margin-top: 20px;
+}
+
+.recensies{
+    position: relative;
+    bottom: 200px;
+    margin-top: 20px;
+}
+
+
+
+  .btn {
+    text-decoration: none;
+    color: #000000;
+    background-color: #bbeaff;
+    border: 1px solid #006461;
+    padding: 5px 10px;
+  }
+  
+  .btn:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  #picker{
+    position: relative;
+    margin-top: 20px;
+    left: 950px;
+  }

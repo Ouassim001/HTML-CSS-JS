@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Store</title>
+    <style>
+        .game {
+            margin-bottom: 20px;
+        }
+
+        .cart {
+            margin-top: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cart-item button {
+            margin-left: 10px;
+        }
+
+        .total-price {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameList"></div>
+    <div id="cart" class="cart">
+        <h2>Winkelmandje</h2>
+        <ul id="cartItems"></ul>
+        <p>Totaalprijs: <span id="totalPrice">0.00</span> Euro</p>
+    </div>
+
+    <script>
+        var games = [
+            {
+                "title": "Counter-Strike: Global Offensive",
+                "price": 0.00,
+                "genre": "FPS",
+                "rating": 4
+            },
+            {
+                "title": "Dota 2",
+                "price": 0.00,
+                "genre": "MOBA",
+                "rating": 3
+            },
+            {
+        "title": "Goose Goose Duck",
+        "price": 4.99,
+        "genre": "Action",
+        "rating": 2
+    },
+    {
+        "title": "Apex Legends",
+        "price": 0.00,
+        "genre": "FPS",
+        "rating": 4
+    },
+    {
+        "title": "PUBG: BATTLEGROUNDS",
+        "price": 29.99,
+        "genre": "FPS",
+        "rating": 5
+    },
+    {
+        "title": "Lost Ark",
+        "price": 49.99,
+        "genre": "Action",
+        "rating": 1
+    },
+    {
+        "title": "Grand Theft Auto V",
+        "price": 29.99,
+        "genre": "FPS",
+        "rating": 3
+    },
+    {
+        "title": "Call of Duty®: Modern Warfare® II | Warzone™ 2.0",
+        "price": 19.99,
+        "genre": "FPS",
+        "rating": 3
+    },
+    {
+        "title": "Team Fortress 2",
+        "price": 0.00,
+        "genre": "FPS",
+        "rating": 5
+    },
+    {
+        "title": "Rust",
+        "price": 39.99,
+        "genre": "Action",
+        "rating": 5
+    },
+    {
+        "title": "Unturned",
+        "price": 0.00,
+        "genre": "RPG",
+        "rating": 1
+    },
+    {
+        "title": "ELDEN RING",
+        "price": 59.99,
+        "genre": "RPG",
+        "rating": 5
+    },
+    {
+        "title": "ARK: Survival Evolved",
+        "price": 10.00,
+        "genre": "RPG",
+        "rating": 1
+    },
+    {
+        "title": "War Thunder",
+        "price": 0.00,
+        "genre": "Simulation",
+        "rating": 2
+    },
+    {
+        "title": "Sid Meier's Civilization VI",
+        "price": 29.99,
+        "genre": "Simulation",
+        "rating": 3
+    },
+    {
+        "title": "Football Manager 2023",
+        "price": 59.99,
+        "genre": "Simulation",
+        "rating": 3
+    },
+    {
+        "title": "Warframe",
+        "price": 0.00,
+        "genre": "Looter-shooter",
+        "rating": 3
+    },
+    {
+        "title": "EA SPORTS™ FIFA 23",
+        "price": 59.99,
+        "genre": "Sport",
+        "rating": 1
+    },
+    {
+        "title": "Destiny 2",
+        "price": 0.00,
+        "genre": "FPS",
+        "rating": 5
+    },
+    {
+        "title": "Red Dead Redemption 2",
+        "price": 59.99,
+        "genre": "RPG",
+        "rating": 4
+    },
+    {
+        "title": "Tom Clancy's Rainbow Six Siege",
+        "price": 19.99,
+        "genre": "Simulation",
+        "rating": 3
+    },
+    {
+        "title": "The Witcher 3: Wild Hunt",
+        "price": 39.99,
+        "genre": "RPG",
+        "rating": 4
+    },
+    {
+        "title": "Terraria",
+        "price": 9.99,
+        "genre": "Sandbox",
+        "rating": 2
+    },
+    {
+        "title": "Stardew Valley",
+        "price": 14.99,
+        "genre": "Sandbox",
+        "rating": 1
+    },
+    {
+        "title": "Left 4 Dead 2",
+        "price": 9.99,
+        "genre": "FPS",
+        "rating": 4
+    },
+    {
+        "title": "Don't Starve Together",
+        "price": 5.09,
+        "genre": "RPG",
+        "rating": 3
+    },
+    {
+        "title": "MIR4",
+        "price": 19.99,
+        "genre": "RPG",
+        "rating": 3
+    },
+    {
+        "title": "PAYDAY 2",
+        "price": 9.99,
+        "genre": "Action",
+        "rating": 2
+    },
+    {
+        "title": "Path of Exile",
+        "price": 0.00,
+        "genre": "RPG",
+        "rating": 4
+    },
+    {
+        "title": "Project Zomboid",
+        "price": 14.99,
+        "genre": "Simulation",
+        "rating": 4
+    },
+    {
+        "title": "Valheim",
+        "price": 19.99,
+        "genre": "Sandbox",
+        "rating": 5
+    },
+    {
+        "title": "DayZ",
+        "price": 44.99,
+        "genre": "Simulation",
+        "rating": 3
+    }
+            
+            
+        ];
+
+        var cartItems = [];
+        var totalPrice = 0.00;
+
+        function generateGameList() {
+            var gameListContainer = document.getElementById("gameList");
+            for (var i = 0; i < games.length; i++) {
+                var game = games[i];
+
+                var gameElement = document.createElement("div");
+                gameElement.classList.add("game");
+
+                var titleElement = document.createElement("h3");
+                titleElement.textContent = game.title;
+                gameElement.appendChild(titleElement);
+
+                var priceElement = document.createElement("p");
+                priceElement.textContent = "Prijs: €" + game.price.toFixed(2);
+                gameElement.appendChild(priceElement);
+
+                var genreElement = document.createElement("p");
+                genreElement.textContent = "Genre: " + game.genre;
+                gameElement.appendChild(genreElement);
+
+                var ratingElement = document.createElement("p");
+                ratingElement.textContent = "Beoordeling: " + game.rating + "/5";
+                gameElement.appendChild(ratingElement);
+
+                var addButton = document.createElement("button");
+                addButton.textContent = "Voeg toe";
+                addButton.addEventListener("click", addToCart.bind(null, game));
+                gameElement.appendChild(addButton);
+
+                gameListContainer.appendChild(gameElement);
+            }
+        }
+
+        function addToCart(game) {
+            cartItems.push(game);
+            totalPrice += game.price;
+
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            var removedGame = cartItems.splice(index, 1)[0];
+            totalPrice -= removedGame.price;
+
+            updateCart();
+        }
+
+        function updateCart() {
+            var cartItemsContainer = document.getElementById("cartItems");
+            var totalPriceElement = document.getElementById("totalPrice");
+
+            cartItemsContainer.innerHTML = "";
+            for (var i = 0; i < cartItems.length; i++) {
+                var cartItem = cartItems[i];
+
+                var cartItemElement = document.createElement("li");
+                cartItemElement.classList.add("cart-item");
+
+                var titleElement = document.createElement("span");
+                titleElement.textContent = cartItem.title;
+                cartItemElement.appendChild(titleElement);
+
+                var priceElement = document.createElement("span");
+                priceElement.textContent = "€" + cartItem.price.toFixed(2);
+                cartItemElement.appendChild(priceElement);
+
+                var editButton = document.createElement("button");
+                editButton.textContent = "Bewerk";
+                editButton.addEventListener("click", editCartItem.bind(null, i));
+                cartItemElement.appendChild(editButton);
+
+                var removeButton = document.createElement("button");
+                removeButton.textContent = "Verwijder";
+                removeButton.addEventListener("click", removeFromCart.bind(null, i));
+                cartItemElement.appendChild(removeButton);
+
+                cartItemsContainer.appendChild(cartItemElement);
+            }
+
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+
+            var cart = document.getElementById("cart");
+            cart.style.display = cartItems.length > 0 ? "block" : "none";
+        }
+
+        function editCartItem(index) {
+            // Implementeer de logica om een spel in het winkelmandje te bewerken
+            // bijvoorbeeld: het aantal exemplaren verhogen/verlagen, opties toevoegen, etc.
+            // Je kunt de index van het spel in de cartItems-array gebruiken om het spel te identificeren.
+            // Pas de code hieronder aan om de gewenste bewerkingen uit te voeren.
+
+            console.log("Edit cart item at index:", index);
+        }
+
+        generateGameList();
+    </script>
+</body>
+</html>
