@@ -120,3 +120,80 @@
     margin-top: 20px;
     left: 950px;
   }
+
+  /* Reset standaard marges en paddings */
+body, h1, h2, h3, h4, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Stijl voor de navigatiebalk */
+nav {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Stijl voor de koptekst */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Stijl voor de hoofdtitel */
+h1 {
+  font-size: 24px;
+}
+
+/* Stijl voor de hoofdsectie */
+section {
+  margin: 20px;
+}
+
+/* Stijl voor de subtitels */
+h2, h3, h4 {
+  margin-bottom: 10px;
+}
+
+/* Stijl voor de afbeeldingen */
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Stijl voor de lijst met systeemvereisten */
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* Stijl voor de reviews */
+article {
+  margin-bottom: 20px;
+}
+
+/* Stijl voor de reviewtitels */
+h4 {
+  margin-bottom: 5px;
+}
+
+/* Stijl voor de reviewtekst */
+p {
+  line-height: 1.5;
+}
